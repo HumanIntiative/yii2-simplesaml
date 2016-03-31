@@ -12,7 +12,7 @@ class UserIdentity extends \yii\base\Object implements \yii\web\IdentityInterfac
         if ($user->hasAttribute($name))
             return $user->getAttribute($name);
         else
-            parent::__get($name);
+            return parent::__get($name);
     }
 
     /**

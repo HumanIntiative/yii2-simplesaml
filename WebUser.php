@@ -12,6 +12,9 @@ class WebUser extends User
     public $authSource;
     public $attributesConfig=[];
 
+    public $superuserCheck = false;
+    public $superuserPermissionName = 'superuserAccess';
+
     private $_saml;
     private $_attributes;
 
@@ -120,6 +123,9 @@ class WebUser extends User
      */
     public function logout($destroySession = true)
     {
+        if ($destroySession && $this->enableSession) {
+            Yii::$app->getSession()->destroy();
+        }
         if ($this->getSaml()->isAuthenticated()) {
             $request = Yii::$app->getRequest();
             $id = $this->getId();
@@ -128,9 +134,6 @@ class WebUser extends User
             $this->getSaml()->logout([
                 'ReturnTo' => $request->getUrl(),
             ]);
-        }
-        if ($destroySession && $this->enableSession) {
-            Yii::$app->getSession()->destroy();
         }
 
         return $this->getIsGuest();
@@ -167,5 +170,13 @@ class WebUser extends User
                 $session->set($this->idParam, $id);
         } elseif ($session->has($this->idParam) && $loginRequired)
             $this->loginRequired($checkAjax);
+    }
+
+    public function can($permissionName, $params = [], $allowCaching = true)
+    {
+        if ($this->superuserCheck && parent::can($this->superuserPermissionName, [], true))
+            return true;
+
+        return parent::can($permissionName, $params, $allowCaching);
     }
 }
