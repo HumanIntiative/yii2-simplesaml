@@ -139,7 +139,7 @@ class WebUser extends User
         return $this->getIsGuest();
     }
 
-    public function loginRequired($checkAjax = true)
+    public function loginRequired($checkAjax = true, $checkAcceptHeader = true)
     {
         $request = Yii::$app->getRequest();
         if ($this->enableSession && (!$checkAjax || !$request->getIsAjax())) {
