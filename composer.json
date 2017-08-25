@@ -1,13 +1,19 @@
 {
-    "name": "itdev/yii2-simplesaml",
+    "name": "zmiftah/yii2-simplesaml",
     "description": "Yii2 Simplesaml",
     "keywords": ["yii2", "extension", "saml", "simplesaml"],
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "authors": [
         {
-            "name": "Bagus P Priyantono",
-            "email": "bagusbox@gmail.com"
+            "name": "Bagus P Priantono",
+            "email": "bagusbox@gmail.com",
+            "role": "Main Developer"
+        },
+        {
+            "name": "Zein Miftah",
+            "email": "zeinmiftah@gmail.com",
+            "role": "Maintainer"
         }
     ],
     "autoload": {
