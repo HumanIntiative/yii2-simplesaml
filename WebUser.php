@@ -1,6 +1,6 @@
 <?php
 
-namespace itdev\simplesaml;
+namespace pkpudev\simplesaml;
 
 use Yii;
 use yii\web\User;
@@ -111,7 +111,7 @@ class WebUser extends User
     /**
      * @var string the class name of the [[identity]] object.
      */
-    public $identityClass = 'itdev\simplesaml\UserIdentity';
+    public $identityClass = 'pkpudev\simplesaml\UserIdentity';
 
     /**
      * Logs out the current user.

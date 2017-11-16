@@ -1,6 +1,6 @@
 <?php
 
-namespace itdev\simplesaml;
+namespace pkpudev\simplesaml;
 
 use Yii;
 
