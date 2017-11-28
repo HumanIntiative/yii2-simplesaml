@@ -3,7 +3,10 @@
     "description": "Yii2 Simplesaml",
     "keywords": ["yii2", "extension", "saml", "simplesaml"],
     "type": "yii2-extension",
-    "license": "BSD-3-Clause",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.6.0"
+    },
     "authors": [
         {
             "name": "Bagus P Priantono",
@@ -18,7 +21,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "pkpudev\\simplesaml\\": ""
+            "pkpudev\\simplesaml\\": "src/"
         }
     }
 }
