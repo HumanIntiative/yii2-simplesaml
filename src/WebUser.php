@@ -3,8 +3,8 @@
 namespace pkpudev\simplesaml;
 
 use Yii;
-use yii\web\User;
 use yii\base\InvalidConfigException;
+use yii\web\User;
 
 class WebUser extends User
 {

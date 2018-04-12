@@ -3,8 +3,10 @@
 namespace pkpudev\simplesaml;
 
 use Yii;
+use yii\base\BaseObject;
+use yii\web\IdentityInterface;
 
-class UserIdentity extends \yii\base\Object implements \yii\web\IdentityInterface
+class UserIdentity extends BaseObject implements IdentityInterface
 {
     public function __get($name)
     {
