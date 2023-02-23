@@ -94,8 +94,13 @@ class WebUser extends User
 
     public function getIdentity($autoRenew = true)
     {
-        $this->checkId();
-        return parent::getIdentity($autoRenew);
+        if ($this->enableSession) {
+            $this->checkId();
+            return parent::getIdentity($autoRenew);
+        } else {
+            return $this->_identity;
+        }
+        
     }
 
     public function getIsGuest()
@@ -168,8 +173,9 @@ class WebUser extends User
                     $session->set($this->idParam, $id);
             } else
                 $session->set($this->idParam, $id);
-        } elseif ($session->has($this->idParam) && $loginRequired)
+        } elseif ($session->has($this->idParam) && $loginRequired) {
             $this->loginRequired($checkAjax);
+        }
     }
 
     public function can($permissionName, $params = [], $allowCaching = true)
