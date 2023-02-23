@@ -96,11 +96,9 @@ class WebUser extends User
     {
         if ($this->enableSession) {
             $this->checkId();
-            return parent::getIdentity($autoRenew);
-        } else {
-            return $this->_identity;
-        }
-        
+        } 
+
+        return parent::getIdentity($autoRenew);
     }
 
     public function getIsGuest()
