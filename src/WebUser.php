@@ -105,7 +105,11 @@ class WebUser extends User
 
     public function getIsGuest()
     {
-        return !$this->getSaml()->isAuthenticated();
+        if ($this->enableSession) {
+            return !$this->getSaml()->isAuthenticated();
+        }
+        return $this->getIdentity() === null;
+        
     }
 
     public function getId()
